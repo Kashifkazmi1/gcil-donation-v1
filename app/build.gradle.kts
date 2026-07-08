@@ -8,23 +8,27 @@ plugins {
 }
 
 android {
-    namespace = "com.stripe.aod.sampleapp"
+    // Use the production applicationId as the namespace so R classes and resources
+    // are generated under the correct package for release builds.
+    namespace = "com.ghamidicenter.donations"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.ghamidicenter.donations"
         minSdk = 28
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Allow BACKEND_URL to be set via environment variable or local.properties.
-        // If neither is present, fall back to a safe placeholder so CI builds succeed.
+        // Require BACKEND_URL to be provided in CI via secrets for production builds.
         val backendUrl = (System.getenv("BACKEND_URL") ?: findLocalProperty("BACKEND_URL"))
             .takeIf { it.isNotBlank() }
-            ?: "https://example.com"
+            ?: throw GradleException(
+                "BACKEND_URL must be defined in local.properties (local builds) " +
+                    "or as a BACKEND_URL environment variable (CI builds)"
+            )
         buildConfigField("String", "BACKEND_URL", "\"$backendUrl\"")
     }
 
@@ -42,7 +46,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // Enable code shrinking and resource shrinking for production.
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 
             if (!System.getenv("RELEASE_KEYSTORE_PATH").isNullOrBlank()) {
@@ -58,9 +64,8 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
-        // Do not fail the build on compiler warnings in CI; prefer fixing warnings but allow
-        // builds to succeed while we address API mismatches.
-        allWarningsAsErrors = false
+        // Treat warnings as errors for production-quality builds.
+        allWarningsAsErrors = true
     }
 
     buildFeatures {
