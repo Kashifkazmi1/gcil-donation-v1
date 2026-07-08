@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home"
+    app:startDestination="@id/connectReaderFragment">
+
+    <fragment
+        android:id="@+id/connectReaderFragment"
+        android:name="com.stripe.aod.sampleapp.fragment.ConnectReaderFragment"
+        android:label="ConnectReaderFragment" >
+        <action
+            android:id="@+id/action_connectReaderFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/connectReaderFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.stripe.aod.sampleapp.fragment.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_tapCardFragment"
+            app:destination="@id/tapCardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_connectReaderFragment"
+            app:destination="@id/connectReaderFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/receiptFragment"
+        android:name="com.stripe.aod.sampleapp.fragment.ReceiptFragment"
+        android:label="ReceiptFragment" >
+        <action
+            android:id="@+id/action_receiptFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
+        <argument
+            android:name="amount"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="paymentIntentID"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/tapCardFragment"
+        android:name="com.stripe.aod.sampleapp.fragment.TapCardFragment"
+        android:label="TapCardFragment">
+        <action
+            android:id="@+id/action_tapCardFragment_to_thankYouFragment"
+            app:destination="@id/thankYouFragment"
+            app:popUpTo="@id/homeFragment" />
+        <argument
+            android:name="amount"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/thankYouFragment"
+        android:name="com.stripe.aod.sampleapp.fragment.ThankYouFragment"
+        android:label="ThankYouFragment" />
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.stripe.aod.sampleapp.fragment.EmailFragment"
+        android:label="EmailFragment" >
+        <action
+            android:id="@+id/action_emailFragment_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
+        <argument
+            android:name="paymentIntentID"
+            app:argType="string"/>
+    </fragment>
+</navigation>

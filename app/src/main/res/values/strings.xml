@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ghamidi Center of Islamic Learning</string>
+    <string name="org_name">Ghamidi Center of Islamic Learning</string>
+
+    <string name="new_payment">Donate</string>
+    <string name="select_donation_amount">Select donation amount</string>
+    <string name="tap_card_when_ready">Tap your card on the reader when ready</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="payment_successful">Your donation has been completed.</string>
+    <string name="done">Done</string>
+    <string name="reader_connecting">Searching for card reader...</string>
+    <string name="turn_on_reader_hint">Make sure your card reader is powered on and nearby</string>
+    <string name="use_phone_tap_to_pay">Skip — use this phone to tap cards instead</string>
+    <string name="reader_connected">Reader connected</string>
+    <string name="reader_disconnected">Reader not connected</string>
+    <string name="custom_amount_help">Or enter a custom amount below</string>
+    <string name="custom_amount_hint">Custom amount</string>
+    <string name="amount_25">$25</string>
+    <string name="amount_50">$50</string>
+    <string name="amount_75">$75</string>
+    <string name="amount_100">$100</string>
+    <string name="custom_amount">Custom amount</string>
+    <string name="donate_now">Donate now</string>
+
+    <string name="please_select_reader">Please select a reader first!</string>
+
+    <string name="status_reader_connected">Reader connected!</string>
+    <string name="status_reader_offline">Reader offline!</string>
+    <string name="unknown_reader">Unknown Reader</string>
+    <string name="connected">Connected</string>
+
+    <string name="key_1">1</string>
+    <string name="key_2">2</string>
+    <string name="key_3">3</string>
+    <string name="key_4">4</string>
+    <string name="key_5">5</string>
+    <string name="key_6">6</string>
+    <string name="key_7">7</string>
+    <string name="key_8">8</string>
+    <string name="key_9">9</string>
+    <string name="key_clear">C</string>
+    <string name="key_0">0</string>
+
+    <string name="enter_amount">Enter amount</string>
+    <string name="default_amount">$0.00</string>
+    <string name="request_payment">Request payment</string>
+    <string name="checkout">Checkout</string>
+    <string name="amount_entered">Amount entered</string>
+    <string name="settings">Settings</string>
+    <string name="stripe">Stripe</string>
+    <string name="back">Back</string>
+
+    <string name="error_fail_to_send_email_receipt">Failed to send receipt email</string>
+    <string name="error_fail_to_create_payment_intent">Failed to create PaymentIntent</string>
+    <string name="error_fail_to_capture_payment_intent">Failed to capture PaymentIntent</string>
+
+    <string name="send_receipt_tip">How would you like to receive a receipt?</string>
+    <string name="email">Email</string>
+    <string name="sms">SMS</string>
+    <string name="print">Print</string>
+    <string name="no_receipt">No receipt</string>
+    <string name="send">Send</string>
+    <string name="invalid_email">"Invalid email"</string>
+</resources>
