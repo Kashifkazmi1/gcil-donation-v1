@@ -8,7 +8,7 @@ import com.stripe.aod.sampleapp.listener.TerminalEventListener
 import com.stripe.aod.sampleapp.network.TokenProvider
 import com.stripe.stripeterminal.Terminal
 import com.stripe.stripeterminal.external.callable.AppsOnDevicesListener
-import com.stripe.stripeterminal.external.callable.BluetoothReaderListener
+import com.stripe.stripeterminal.external.callable.MobileReaderListener
 import com.stripe.stripeterminal.external.callable.Callback
 import com.stripe.stripeterminal.external.callable.Cancelable
 import com.stripe.stripeterminal.external.callable.DiscoveryListener
@@ -149,7 +149,7 @@ class MainViewModel : ViewModel() {
         _isConnecting.update { true }
         cancelDiscoveryTask()
 
-        val readerListener = object : BluetoothReaderListener {
+        val readerListener = object : MobileReaderListener {
             override fun onReportReaderEvent(event: ReaderEvent) {
                 Log.i(Config.TAG, "onReportReaderEvent: $event")
             }
