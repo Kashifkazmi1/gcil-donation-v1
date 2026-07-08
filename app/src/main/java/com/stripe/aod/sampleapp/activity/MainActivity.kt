@@ -98,12 +98,14 @@ class MainActivity : AppCompatActivity() {
     private fun initialize() {
         // Initialize the Terminal as soon as possible
         try {
+            // The Stripe Terminal SDK may have different Terminal.init signatures between versions.
+            // Remove the offlineListener parameter which is not present in some SDK versions to avoid
+            // a compiler warning that fails the build when allWarningsAsErrors = true.
             Terminal.init(
                 context = applicationContext,
                 logLevel = LogLevel.VERBOSE,
                 tokenProvider = viewModel.tokenProvider,
-                listener = TerminalEventListener,
-                offlineListener = null,
+                listener = TerminalEventListener
             )
 
             viewModel.startDiscovery()
