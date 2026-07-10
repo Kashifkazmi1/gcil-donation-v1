@@ -22,13 +22,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Require BACKEND_URL to be provided in CI via secrets for production builds.
-        val backendUrl = (System.getenv("BACKEND_URL") ?: findLocalProperty("BACKEND_URL"))
-            .takeIf { it.isNotBlank() }
-            ?: throw GradleException(
-                "BACKEND_URL must be defined in local.properties (local builds) " +
-                    "or as a BACKEND_URL environment variable (CI builds)"
-            )
+        // Set BACKEND_URL to the provided production backend URL
+        val backendUrl = "https://backend-apk-production-e9bb.up.railway.app/"
         buildConfigField("String", "BACKEND_URL", "\"$backendUrl\"")
     }
 
