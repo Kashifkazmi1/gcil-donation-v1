@@ -105,7 +105,8 @@ class MainActivity : AppCompatActivity() {
                 context = applicationContext,
                 logLevel = LogLevel.VERBOSE,
                 tokenProvider = viewModel.tokenProvider,
-                listener = TerminalEventListener
+                listener = TerminalEventListener,
+                offlineListener = null
             )
 
             viewModel.startDiscovery()
