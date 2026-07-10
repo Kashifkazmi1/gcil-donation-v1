@@ -10,7 +10,7 @@ plugins {
 android {
     // Use the production applicationId as the namespace so R classes and resources
     // are generated under the correct package for release builds.
-    namespace = "com.ghamidicenter.donations"
+    namespace = "com.stripe.aod.sampleapp"
     compileSdk = 35
 
     defaultConfig {
